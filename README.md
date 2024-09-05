@@ -1,0 +1,1 @@
+Developed a Node.js project that includes a server capable of handling user authentication and CRUD operations (Create, Read, Update, Delete) on a MongoDB database. Implemented RESTful APIs using JavaScript, Express.js, CORS, and other technologies to enable seamless data management through GET, POST, PUT, and DELETE requests.
