@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 
-const app = express();
-const corsMiddleware = cors();
+const booksRouter = require("./routes/api/books");
 
-app.use(corsMiddleware);
+const app = express();
+
+app.use(cors);
 
 app.listen(3000, () => console.log("Server running"));
 
