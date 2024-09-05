@@ -1,15 +1,26 @@
 {
   "name": "node.js-mongodb",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "App.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "start:dev": "nodemon app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
   "dependencies": {
     "express": "^4.19.2"
   }
 }
+
+
+
+
+
+        
