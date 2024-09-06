@@ -13,7 +13,20 @@ router.get("/", async (req, res) => {
     }
 });
 router.get("/:id", async (req, res) => {
-    res.json()
+    try {
+        const {id} = req.params;
+        const result = await books.getById(id);
+        if(!result){
+            return res.status(404).json({
+                message: "Not found"
+            })
+        }
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({
+            message: "Server error"
+        })
+    }
 });
 router.post("/", async (req, res) => {
     res.json()
