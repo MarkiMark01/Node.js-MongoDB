@@ -1,8 +1,10 @@
 const express = require("express");
 
+const {HttpError} = require("../../helpers");
+
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
     try {
         const result = await books.getAll();
         res.json(result);
@@ -17,15 +19,14 @@ router.get("/:id", async (req, res) => {
         const {id} = req.params;
         const result = await books.getById(id);
         if(!result){
-            return res.status(404).json({
-                message: "Not found"
-            })
+            throw HttpError(404, "Not found");
+            // return res.status(404).json({
+            //     message: "Not found"
+            // })
         }
         res.json(result);
     } catch (error) {
-        res.status(500).json({
-            message: "Server error"
-        })
+        next(error)
     }
 });
 router.post("/", async (req, res) => {
