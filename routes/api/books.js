@@ -1,21 +1,13 @@
 const express = require("express");
 
+const ctrl = require("../../controllers/books");
 
 const router = express.Router();
 
-const addSchema = Joi.object({
-    title: Joi.string().required(),
-    author: Joi.string.required(),
-})
 
-router.get("/", async (req, res, next) => {
-    try {
-        const result = await books.getAll();
-        res.json(result);
-    } catch (error) {
-        next(error)
-    }
-});
+
+router.get("/", ctrl.getAll);
+
 router.get("/:id", async (req, res, next) => {
     try {
         const {id} = req.params;
