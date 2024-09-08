@@ -10,7 +10,7 @@ router.get("/", ctrl.getAll);
 
 router.get("/:id", ctrl.getById);
 
-router.post("/", );
+router.post("/", ctrl.add);
 router.put("/:id", async (req, res, next) => {
     try {
         const {error} = addSchema.validate(req.body)
