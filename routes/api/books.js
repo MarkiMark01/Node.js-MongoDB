@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get("/", ctrl.getAll);
 
-router.get("/:id", );
+router.get("/:id", ctrl.getById);
 router.post("/", async (req, res, next) => {
     try {
         const {error} = addSchema.validate(req.body)
