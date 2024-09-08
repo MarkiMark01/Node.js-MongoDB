@@ -62,9 +62,25 @@ const updateById = async (req, res, next) => {
     }
 }
 
+const deleteById = async (req, res, next) => {
+    try {
+      const {id} = req.params;
+      const result = await books.deleteById(id);
+      if(!result){
+          throw HttpError(404, "Not found");
+      }
+      res.json({
+          message: "Delete success"
+      })
+    } catch (error) {
+      next(error)
+    }
+}
+
 module.exports = {
     getAll,
     getById,
     add,
     updateById,
+    deleteById,
 }
