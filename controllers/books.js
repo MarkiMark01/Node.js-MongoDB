@@ -44,7 +44,6 @@ const updateById = async (req, res, next) => {
 }
 
 const deleteById = async (req, res, next) => {
-    try {
       const {id} = req.params;
       const result = await books.deleteById(id);
       if(!result){
@@ -53,9 +52,6 @@ const deleteById = async (req, res, next) => {
       res.json({
           message: "Delete success"
       })
-    } catch (error) {
-      next(error)
-    }
 }
 
 module.exports = {
@@ -63,5 +59,5 @@ module.exports = {
     getById: ctrlWrapper(getById),
     add: ctrlWrapper(add),
     updateById: ctrlWrapper(updateById),
-    deleteById,
+    deleteById: ctrlWrapper(deleteById),
 }
