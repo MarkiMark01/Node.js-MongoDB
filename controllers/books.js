@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const {HttpError} = require("../helpers");
+const {HttpError, ctrlWrapper} = require("../helpers");
 
 const addSchema = Joi.object({
     title: Joi.string().required(),
@@ -8,12 +8,8 @@ const addSchema = Joi.object({
 })
 
 const getAll = async (req, res, next) => {
-    try {
         const result = await books.getAll();
         res.json(result);
-    } catch (error) {
-        next(error)
-    }
 }
 
 const getById = async (req, res, next) => {
@@ -78,7 +74,7 @@ const deleteById = async (req, res, next) => {
 }
 
 module.exports = {
-    getAll,
+    getAll: ctrlWrapper(getAll),
     getById,
     add,
     updateById,
