@@ -31,7 +31,6 @@ const add = async (req, res, next) => {
 }
 
 const updateById = async (req, res, next) => {
-    try {
         const {error} = addSchema.validate(req.body)
         if(error){
             throw HttpError(400, error.message);
@@ -42,9 +41,6 @@ const updateById = async (req, res, next) => {
             throw HttpError(404, "Not found");
         }
         res.json(result);
-    } catch (error) {
-        next(error)
-    }
 }
 
 const deleteById = async (req, res, next) => {
@@ -66,6 +62,6 @@ module.exports = {
     getAll: ctrlWrapper(getAll),
     getById: ctrlWrapper(getById),
     add: ctrlWrapper(add),
-    updateById,
+    updateById: ctrlWrapper(updateById),
     deleteById,
 }
