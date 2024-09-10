@@ -6,7 +6,7 @@ const schemas = require("../../schemas/books")
 
 const router = express.Router();
 
-
+router.get("/:id", ctrl.getAllByID);
 
 router.get("/", ctrl.getAll);
 
