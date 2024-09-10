@@ -7,12 +7,12 @@ const addSchema = Joi.object({
     author: Joi.string.required(),
 })
 
-const getAll = async (req, res, next) => {
+const getAll = async (req, res) => {
         const result = await books.getAll();
         res.json(result);
 }
 
-const getById = async (req, res, next) => {
+const getById = async (req, res) => {
         const {id} = req.params;
         const result = await books.getById(id);
         if(!result){
@@ -21,7 +21,7 @@ const getById = async (req, res, next) => {
         res.json(result);
 }
 
-const add = async (req, res, next) => {
+const add = async (req, res) => {
         const {error} = addSchema.validate(req.body)
         if(error){
             throw HttpError(400, error.message);
@@ -30,7 +30,7 @@ const add = async (req, res, next) => {
         res.status(201).json(result);
 }
 
-const updateById = async (req, res, next) => {
+const updateById = async (req, res) => {
         const {error} = addSchema.validate(req.body)
         if(error){
             throw HttpError(400, error.message);
@@ -43,7 +43,7 @@ const updateById = async (req, res, next) => {
         res.json(result);
 }
 
-const deleteById = async (req, res, next) => {
+const deleteById = async (req, res) => {
       const {id} = req.params;
       const result = await books.deleteById(id);
       if(!result){
