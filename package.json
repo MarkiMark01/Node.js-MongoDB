@@ -2,11 +2,11 @@
   "name": "node.js-mongodb",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
-  "scripts": {
+  "main": "app.js",
+"scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
-    "start:dev": "nodemon app"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

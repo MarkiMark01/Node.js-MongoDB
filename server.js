@@ -1,20 +1,19 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const app = require('./app');
+require('dotenv').config();
 
-const app = require('./App');
+const { DB_HOST, PORT = 3000 } = process.env;
 
-const { DB_HOST, PORT = 3000 } = process.env
+mongoose.set('strictQuery', true);
 
-mongoose.set('strictQuery', true)
-
-console.log('Before connecting to MongoDB');
 mongoose.connect(DB_HOST)
     .then(() => {
         console.log('Connected to MongoDB');
         app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`)
+            console.log(`Server is running on port ${PORT}`);
         });
     })
     .catch(error => {
-        console.log(error.message);
+        console.error('MongoDB connection error:', error);
         process.exit(1);
     });
