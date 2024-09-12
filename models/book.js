@@ -1,4 +1,6 @@
 const { Schema, model } = require("mongoose");
+const Joi = require("joi");
+
 const {handleMongooseError} = require("../helpers");
 
 const bookSchema = new Schema({
@@ -27,6 +29,12 @@ const bookSchema = new Schema({
 }, { versionKey: false, timestamps: true }); 
 
 bookSchema.post("save", handleMongooseError);
+
+const addSchema = Joi.object({
+    title: Joi.string().required(),
+    author: Joi.string().required(),
+    favorite: Joi.boolean().required(),
+})
 
 const Book = model("book", bookSchema);
 
