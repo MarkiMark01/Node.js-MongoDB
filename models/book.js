@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const { Schema, model } = require("mongoose");
 
 const bookSchema = new Schema({
@@ -12,6 +13,11 @@ const bookSchema = new Schema({
     favorite: {
         type: Boolean,
         default: false,
+    },
+    genre: {
+        type: String,
+        enum: ["fantastic", "adventure", "sitcom"],
+        required: true,
     }
 }, { versionKey: false, timestamps: true }); 
 
