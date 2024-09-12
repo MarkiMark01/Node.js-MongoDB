@@ -18,6 +18,11 @@ const bookSchema = new Schema({
         type: String,
         enum: ["fantastic", "adventure", "sitcom"],
         required: true,
+    },
+    date: {
+        type: String,
+        match: /^([0-2][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4})$/,
+        required: true,
     }
 }, { versionKey: false, timestamps: true }); 
 
