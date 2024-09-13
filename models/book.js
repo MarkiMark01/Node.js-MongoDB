@@ -3,6 +3,8 @@ const Joi = require("joi");
 
 const {handleMongooseError} = require("../helpers");
 
+const genreList = ["fantastic", "adventure", "sitcom"];
+
 const bookSchema = new Schema({
     title: {
         type: String,
@@ -18,7 +20,7 @@ const bookSchema = new Schema({
     },
     genre: {
         type: String,
-        enum: ["fantastic", "adventure", "sitcom"],
+        enum: genreList,
         required: true,
     },
     date: {
@@ -34,6 +36,7 @@ const addSchema = Joi.object({
     title: Joi.string().required(),
     author: Joi.string().required(),
     favorite: Joi.boolean().required(),
+    genre: Joi.string().validate(...genreList).required(),
 })
 
 const Book = model("book", bookSchema);
