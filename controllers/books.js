@@ -1,5 +1,5 @@
 const {HttpError, ctrlWrapper} = require("../helpers");
-const Book = require("../models/book");
+const {Book} = require("../models/book");
 
 const getAll = async (req, res) => {
     const result = await Book.find();

@@ -37,10 +37,17 @@ const addSchema = Joi.object({
     title: Joi.string().required(),
     author: Joi.string().required(),
     favorite: Joi.boolean().required(),
-    genre: Joi.string().validate(...genreList).required(),
+    genre: Joi.string().valid(...genreList).required(),
     date: Joi.string().pattern(dateRegexp).required(),
 })
 
 const Book = model("book", bookSchema);
 
-module.exports = Book;
+const schemas = {
+    addSchema,
+}
+
+module.exports = {
+    Book,
+    schemas,
+};
