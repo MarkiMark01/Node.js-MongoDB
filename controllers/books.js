@@ -22,7 +22,7 @@ const add = async (req, res) => {
 
 const updateById = async (req, res) => {
     const { id } = req.params;
-    const result = await books.updateById(id, req.body);
+    const result = await Book.findByIdAndUpdate(id, req.body, {new: true});
     if (!result) {
         throw HttpError(404, "Not found");
     }
