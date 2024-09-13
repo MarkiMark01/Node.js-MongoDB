@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     const { id } = req.params;
-    const result = await books.getById(id);
+    const result = await Book.findById(id);
     if (!result) {
         throw HttpError(404, "Not found");
     }
