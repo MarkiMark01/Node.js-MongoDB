@@ -39,12 +39,17 @@ const addSchema = Joi.object({
     favorite: Joi.boolean().required(),
     genre: Joi.string().valid(...genreList).required(),
     date: Joi.string().pattern(dateRegexp).required(),
+});
+
+const updateFavoriteSchema = Joi.object({
+    favorite: Joi.boolean().required()
 })
 
 const Book = model("book", bookSchema);
 
 const schemas = {
     addSchema,
+    updateFavoriteSchema,
 }
 
 module.exports = {
