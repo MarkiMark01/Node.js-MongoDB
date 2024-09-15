@@ -10,4 +10,10 @@ name: {
     type: String,
     required: true,
 },
+email: {
+    type: String,
+    match: emailRegexp,
+    required: true,
+},
+
 }, {versionKey: false, timestamps: true});
