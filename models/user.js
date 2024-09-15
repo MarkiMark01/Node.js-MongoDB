@@ -15,5 +15,9 @@ email: {
     match: emailRegexp,
     required: true,
 },
-
+password: {
+    type: String,
+    minLength: 6,
+    reqiured: true,
+}
 }, {versionKey: false, timestamps: true});
