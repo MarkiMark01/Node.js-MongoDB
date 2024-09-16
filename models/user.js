@@ -25,5 +25,5 @@ password: {
 userSchema.post("save", handleMongooseError);
 
 const registerSchema = Joi.object({
-    
+    name: Joi.string().required(),
 })
