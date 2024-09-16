@@ -23,3 +23,7 @@ password: {
 }, {versionKey: false, timestamps: true});
 
 userSchema.post("save", handleMongooseError);
+
+const registerSchema = Joi.object({
+    
+})
