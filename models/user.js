@@ -21,3 +21,5 @@ password: {
     reqiured: true,
 }
 }, {versionKey: false, timestamps: true});
+
+userSchema.post("save", handleMongooseError);
