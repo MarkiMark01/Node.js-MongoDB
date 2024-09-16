@@ -29,3 +29,7 @@ const registerSchema = Joi.object({
     email: Joi.string().pattern(emailRegexp).required(),
     password: Joi.string().min().required(),
 })
+const loginSchema = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required(),
+    password: Joi.string().min().required(),
+})
