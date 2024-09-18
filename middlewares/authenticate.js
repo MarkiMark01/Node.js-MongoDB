@@ -1,4 +1,4 @@
-const authenticate = (req, res, next) => {
+const authenticate = async(req, res, next) => {
 
 }
 module.exports = authenticate;
