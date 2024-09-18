@@ -20,8 +20,13 @@ const hashPassword = await bcrypt.hash(password, 10);
         name: newUser.name,
         
     })
+};
+
+const login = async(req, res) => {
+
 }
 
 module.exports = {
     register: ctrlWrapper(register),
+    login: ctrlWrapper(login),
 }
