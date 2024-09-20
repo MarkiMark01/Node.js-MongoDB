@@ -2,7 +2,8 @@ const {HttpError, ctrlWrapper} = require("../helpers");
 const {Book} = require("../models/book");
 
 const getAll = async (req, res) => {
-    const result = await Book.find();
+    const {_id: owner} = req.user
+    const result = await Book.find({owner}, "-createdAt, -updateAt");
     res.json(result);
 }
 
