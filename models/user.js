@@ -20,6 +20,10 @@ password: {
     type: String,
     minLength: 6,
     reqiured: true,
+},
+token: {
+    type: String,
+    default: "",
 }
 }, {versionKey: false, timestamps: true});
 
